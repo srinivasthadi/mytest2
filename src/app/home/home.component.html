@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="basic-container"  [formGroup]="DaterForm">
+    From Date:
+   <mat-form-field>
+     <input matInput [matDatepicker]="picker" placeholder="Choose a Start date" 
+     formControlName="StartDate"
+       [min]="minFromDate" 
+            [max]="maxToDate" >
+     <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+     <mat-datepicker #picker></mat-datepicker>
+   </mat-form-field> 
+       <mat-error *ngIf="DaterForm.get('StartDate').hasError('requiredFromDate') && ((DaterForm.get('StartDate').touched ||
+       DaterForm.get('StartDate').dirty))">Please provide a valid Fromdate</mat-error>
+
